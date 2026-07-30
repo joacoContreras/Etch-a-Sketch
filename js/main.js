@@ -15,15 +15,12 @@ function createGrid(size) {
         
         square.style.width = `${100 / size}%`;
         square.style.height = `${100 / size}%`;
+        const baseColor = getRandomColor();
+        let opacity = 0;
 
         square.addEventListener("mouseover", function() {
-            let backgroundColor = getRandomColor();
-            backgroundColor = "rgba("+backgroundColor+", 1)";
-            this.style.backgroundColor = backgroundColor;
-        });
-
-        square.addEventListener("mouseout", function() {
-            this.style.backgroundColor = "white";
+            opacity = Math.min(opacity + 0.10, 1);
+            this.style.backgroundColor = `rgba(${baseColor}, ${opacity})`;
         });
 
         gridSquare.appendChild(square);
