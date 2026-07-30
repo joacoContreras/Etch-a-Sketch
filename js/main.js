@@ -1,4 +1,4 @@
-const gridSquare = document.querySelector(".container");
+const gridSquare = document.querySelector("#container");
 
 function createGrid(size) {
     // Clean container for re-use
