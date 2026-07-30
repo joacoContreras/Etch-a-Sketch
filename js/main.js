@@ -1,4 +1,7 @@
 const gridSquare = document.querySelector("#container");
+const gridButton = document.querySelector("#change-grid-button");
+
+
 
 function createGrid(size) {
     // Clean container for re-use
@@ -23,6 +26,22 @@ function createGrid(size) {
 
         gridSquare.appendChild(square);
     }
-}
+};
 
-createGrid(16);
+gridButton.addEventListener("mouseover", function() {
+    this.style.backgroundColor = "white";
+});
+
+gridButton.addEventListener("mouseout", function() {
+    this.style.backgroundColor = "rgba(188, 184, 179, 0.348)";
+});
+
+gridButton.addEventListener("click", function() {
+    let newGridSize = prompt("Please, enter a number between 1 and 100 to change the grid size","16");
+    newGridSize = parseInt(newGridSize);
+    if(newGridSize>=1 && newGridSize<=100) {
+        createGrid(newGridSize);
+    } else {
+        alert("Invalid Input. Please, enter a number between 1 and 100.");
+    }
+});
