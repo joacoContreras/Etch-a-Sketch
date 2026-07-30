@@ -13,7 +13,15 @@ function createGrid(size) {
         square.style.width = `${100 / size}%`;
         square.style.height = `${100 / size}%`;
 
-        container.appendChild(square);
+        square.addEventListener("mouseover", function() {
+            this.style.backgroundColor = "black";
+        });
+
+        square.addEventListener("mouseout", function() {
+            this.style.backgroundColor = "white";
+        });
+
+        gridSquare.appendChild(square);
     }
 }
 
