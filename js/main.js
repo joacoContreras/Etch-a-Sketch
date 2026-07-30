@@ -17,7 +17,9 @@ function createGrid(size) {
         square.style.height = `${100 / size}%`;
 
         square.addEventListener("mouseover", function() {
-            this.style.backgroundColor = "black";
+            let backgroundColor = getRandomColor();
+            backgroundColor = "rgba("+backgroundColor+", 1)";
+            this.style.backgroundColor = backgroundColor;
         });
 
         square.addEventListener("mouseout", function() {
@@ -29,11 +31,11 @@ function createGrid(size) {
 };
 
 gridButton.addEventListener("mouseover", function() {
-    this.style.backgroundColor = "white";
+    this.style.backgroundColor = white;
 });
 
 gridButton.addEventListener("mouseout", function() {
-    this.style.backgroundColor = "rgba(188, 184, 179, 0.348)";
+    this.style.backgroundColor = "rgba(188, 184, 179, 0.26)";
 });
 
 gridButton.addEventListener("click", function() {
@@ -45,3 +47,13 @@ gridButton.addEventListener("click", function() {
         alert("Invalid Input. Please, enter a number between 1 and 100.");
     }
 });
+
+function getRandomColor() {
+    return getRandomInt(0, 255)+","+getRandomInt(0, 255)+","+getRandomInt(0, 255);
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}   
